@@ -34,6 +34,7 @@ fn main() {
     }
     looping();
     range();
+    fibonacci(secret_number);
 }
 
 fn looping() {
@@ -63,4 +64,16 @@ fn range() {
         println!("{}", num)
     }
     println!("finish!")
+}
+
+fn fibonacci(x: u32) -> u32 {
+    match x {
+        0 => 0, // matchした時に fat arrow を使って戻り値を設定
+        1 => 1,
+        _ => {
+            let mut result: u32 = fibonacci(x - 1) + fibonacci(x - 2);
+            println!("{}", result);
+            result
+        } // _ はその他
+    }
 }
